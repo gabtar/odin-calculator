@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+:root {
+  --display: #94AAAE;
+  --base-dark: #031114;
+  --darkest: #072227;
+  --dark: #35858B;
+  --light: #4FBDBA;
+  --lighter: #AEFEFF;
+  --lightest: #CEFFA1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(2em, 1fr));
+  grid-template-areas: 
+  'title title title title'
+  'display display display display';
+  grid-gap: .3em;
+  margin: 10%;
+  background-color: var(--base-dark);
+  padding: 2em;
+  border-radius: 1em;
+}
+
+h1 {
+  grid-area: title;
+  color: var(--lightest);
+}
+
+.display {
+  color: var(--base-dark);
+  background-color: var(--display);
+  grid-area: display;
+  font-size: 2em;
+  border: 1px solid #000;
+  border-radius: .3em;
+  text-align: right;
+  padding: .2em;
+}
+
+.number, .operator, .clear, .clear-display, .dot, .equals {
+  font-size: 1em;
+  font-weight: bold;
+  height: 3em;
+  color: #fff;
+  border: none;
+  border-radius: .3em;
+  cursor: pointer;
+}
+
+.number, .clear-display, .dot {
+  background-color: var(--darkest);
+}
+
+.number:hover, .clear-display:hover, .dot:hover {
+  background-color: var(--dark);
+}
+
+.operator {
+  background-color: var(--dark);
+}
+
+.operator:hover {
+  background-color: var(--light);
+}
+
+.clear {
+  background-color: var(--light);
+}
+
+.clear:hover {
+ background-color: var(--lighter);
+}
+
+.equals {
+  background-color: var(--lighter);
+  color: black;
+}
+
+.equals:hover {
+  background-color: var(--lightest);
+}
