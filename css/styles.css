@@ -8,6 +8,7 @@
   --light: #4FBDBA;
   --lighter: #AEFEFF;
   --lightest: #CEFFA1;
+  --highlight: red;
 }
 
 * {
@@ -17,6 +18,11 @@
 
 body {
   font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  grid-area: title;
+  color: var(--lightest);
 }
 
 .container {
@@ -32,11 +38,6 @@ body {
   border-radius: 1em;
 }
 
-h1 {
-  grid-area: title;
-  color: var(--lightest);
-}
-
 .display {
   color: var(--base-dark);
   background-color: var(--display);
@@ -48,7 +49,13 @@ h1 {
   padding: .2em;
 }
 
-.number, .operator, .clear, .clear-display, .dot, .equals {
+.display::placeholder {
+  color: var(--base-dark);
+  opacity: .6;
+}
+
+.number, .operator, .clear, .backspace, .dot, #equals, .sign {
+  transition-duration: .05s;
   font-size: 1em;
   font-weight: bold;
   height: 3em;
@@ -58,19 +65,19 @@ h1 {
   cursor: pointer;
 }
 
-.number, .clear-display, .dot {
+.number, .backspace, .dot {
   background-color: var(--darkest);
 }
 
-.number:hover, .clear-display:hover, .dot:hover {
+.number:hover, .backspace:hover, .dot:hover {
   background-color: var(--dark);
 }
 
-.operator {
+.operator, .sign {
   background-color: var(--dark);
 }
 
-.operator:hover {
+.operator:hover, .sign:hover {
   background-color: var(--light);
 }
 
@@ -82,11 +89,16 @@ h1 {
  background-color: var(--lighter);
 }
 
-.equals {
+#equals {
   background-color: var(--lighter);
   color: black;
 }
 
-.equals:hover {
+#equals:hover {
   background-color: var(--lightest);
+}
+
+.number:active, .operator:active, .clear:active, .backspace:active, .dot:active, .sign:active, #equals:active {
+  background-color: var(--highlight);
+  transform: scale(1.05);
 }
